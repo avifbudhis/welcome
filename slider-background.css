@@ -1,0 +1,19 @@
+.login-page {
+    align-items: center;
+    animation: slide 20s linear infinite;
+    background-image: url(/slider.png);
+    background-size: cover;
+    display: flex;
+    height: 100vh;
+    max-width: 100%
+}
+
+@keyframes slide {
+    0% {
+        background-position: 0 0
+    }
+
+    to {
+        background-position: 0 100%
+    }
+}
