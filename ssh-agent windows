@@ -1,0 +1,18 @@
+Git and ssh-agent on Windows
+
+# Create new ssh key rsa 4096
+ssh-keygen -t rsa -b 4096 -C "%USERNAME%" -f %USERPROFILE%\.ssh\github_%USERNAME%_rsa
+
+# Have ssh agent start automatically
+Get-Service ssh-agent | Set-Service -StartupType Automatic
+
+# Start ssh agent now
+Start-Service ssh-agent
+
+# Should work successfully
+Get-Service ssh-agent
+
+# tell git to use ssh.exe
+git config --global core.sshCommand "'C:\Windows\System32\OpenSSH\ssh.exe'"
+
+ssh-add "%USERPROFILE%\.ssh\github_%USERNAME%_rsa"
